@@ -31,11 +31,11 @@ class BaseModel:
         
     def to_dict(self):
         """returns BaseModel dictonary"""
-        Bdic = self.__dict__.copy()
-        Bdic["created_at"] = self.created_at.isoformat()
-        Bdic["updated_at"] = self.updated_at.isoformat()
-        Bdic["__class__"] = self.__class__.__name__
-        return Bdic
+        Bdict = self.__dict__.copy()
+        Bdict["created_at"] = self.created_at.isoformat()
+        Bdict["updated_at"] = self.updated_at.isoformat()
+        Bdict["__class__"] = self.__class__.__name__
+        return Bdict
     def __str__(self):
         """returns a string representation of instance"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
