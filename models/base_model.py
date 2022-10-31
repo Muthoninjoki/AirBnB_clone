@@ -16,13 +16,13 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        ft = "%Y-%m-%dT%H:%M:%S.%f"
+        fmt = "%Y-%m-%dT%H:%M:%S.%f"
         if kwargs is not None:
-            for key, n in kwargs.items():
-                if key == "updated_at" or key == "created_at":
-                    self.__dict__[key] = datetime.strptime(n, ft)
+            for k, v in kwargs.items():
+                if k == "updated_at" or k == "created_at":
+                    self.__dict__[k] = datetime.strptime(v, fmt)
                 else:
-                    self.__dict__[key] = n
+                    self.__dict__[k] = v
         models.storage.new(self)
     def save(self):
         """updated_at attribute with current datetime"""
